@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abigail Moda - Accesorios & Bijouterie de Lujo Natural</title>
+    <meta name="description" content="Descubrí la elegancia natural en cada detalle. Joyas, accesorios y cosméticos premium con envío a todo Argentina.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;1,8..60,300;1,8..60,400&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        :root {
+            /* Nature Luxury Color Palette */
+            --sage-green: #8B9D83;
+            --sage-dark: #6B7D63;
+            --sage-light: #ABB9A3;
+            --terracotta: #C17767;
+            --terracotta-dark: #A15747;
+            --gold: #D4AF37;
+            --gold-light: #E4CF77;
+            --cream: #FAF8F3;
+            --stone: #E8E4DC;
+            --stone-dark: #D8D4CC;
+            --charcoal: #3A3A3A;
+            --white: #FFFFFF;
+            
+            /* Typography */
+            --font-display: 'Cormorant Garamond', serif;
+            --font-heading: 'Montserrat', sans-serif;
+            --font-body: 'Source Serif 4', serif;
+            
+            /* Spacing */
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2.5rem;
+            --spacing-xl: 4rem;
+            
+            /* Transitions */
+            --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            background-color: var(--cream);
+            color: var(--charcoal);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--stone);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--sage-green);
+            border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--sage-dark);
+        }
+        
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(250, 248, 243, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--stone);
+            transition: var(--transition-smooth);
+        }
+        
+        .header.scrolled {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .header-top {
+            background: var(--sage-green);
+            color: var(--white);
+            padding: var(--spacing-xs) 0;
+            text-align: center;
+            font-family: var(--font-heading);
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+        
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: var(--spacing-md) var(--spacing-lg);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .logo {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--sage-dark);
+            text-decoration: none;
+            font-style: italic;
+            letter-spacing: 1px;
+            transition: var(--transition-smooth);
+        }
+        
+        .logo:hover {
+            color: var(--terracotta);
+            transform: scale(1.02);
+        }
+        
+        .nav-menu {
+            display: flex;
+            gap: var(--spacing-lg);
+            list-style: none;
+        }
+        
+        .nav-link {
+            font-family: var(--font-heading);
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--charcoal);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: var(--spacing-xs) var(--spacing-sm);
+            position: relative;
+            transition: var(--transition-smooth);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transform: translateX(-50%);
+            transition: var(--transition-smooth);
+        }
+        
+        .nav-link:hover {
+            color: var(--sage-green);
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .nav-actions {
+            display: flex;
+            gap: var(--spacing-md);
+            align-items: center;
+        }
+        
+        .action-btn {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            color: var(--charcoal);
+            transition: var(--transition-smooth);
+            position: relative;
+        }
+        
+        .action-btn:hover {
+            color: var(--sage-green);
+            transform: scale(1.1);
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--terracotta);
+            color: var(--white);
+            font-family: var(--font-heading);
+            font-size: 0.7rem;
+            font-weight: 600;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Hero Section */
+        .hero {
+            margin-top: 120px;
+            height: 85vh;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--sage-light) 0%, var(--stone) 100%);
+            z-index: 0;
+        }
+        
+        .hero-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.05;
+            background-image: 
+                repeating-linear-gradient(45deg, transparent, transparent 35px, var(--sage-dark) 35px, var(--sage-dark) 36px),
+                repeating-linear-gradient(-45deg, transparent, transparent 35px, var(--sage-dark) 35px, var(--sage-dark) 36px);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 900px;
+            padding: 0 var(--spacing-lg);
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero-subtitle {
+            font-family: var(--font-heading);
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--sage-dark);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: var(--spacing-sm);
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+        
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: 5.5rem;
+            font-weight: 600;
+            color: var(--charcoal);
+            line-height: 1.1;
+            margin-bottom: var(--spacing-md);
+            font-style: italic;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+        
+        .hero-description {
+            font-size: 1.2rem;
+            color: var(--charcoal);
+            margin-bottom: var(--spacing-xl);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+        
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            background: var(--sage-green);
+            color: var(--white);
+            font-family: var(--font-heading);
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 1.2rem 3rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition-bounce);
+            box-shadow: 0 8px 25px rgba(139, 157, 131, 0.3);
+            animation: fadeInUp 1s ease-out 0.8s both;
+        }
+        
+        .hero-cta:hover {
+            background: var(--sage-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(139, 157, 131, 0.4);
+        }
+        
+        /* Categories Section */
+        .categories {
+            padding: var(--spacing-xl) var(--spacing-lg);
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .section-title {
+            font-family: var(--font-display);
+            font-size: 3.5rem;
+            font-weight: 600;
+            color: var(--charcoal);
+            font-style: italic;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--sage-dark);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-xl);
+        }
+        
+        .category-card {
+            position: relative;
+            height: 400px;
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        .category-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--sage-light);
+            transition: var(--transition-smooth);
+        }
+        
+        .category-card:nth-child(1) .category-bg { background: linear-gradient(135deg, var(--sage-green), var(--sage-light)); }
+        .category-card:nth-child(2) .category-bg { background: linear-gradient(135deg, var(--terracotta), var(--gold-light)); }
+        .category-card:nth-child(3) .category-bg { background: linear-gradient(135deg, var(--stone-dark), var(--stone)); }
+        .category-card:nth-child(4) .category-bg { background: linear-gradient(135deg, var(--gold), var(--gold-light)); }
+        .category-card:nth-child(5) .category-bg { background: linear-gradient(135deg, var(--sage-dark), var(--sage-green)); }
+        .category-card:nth-child(6) .category-bg { background: linear-gradient(135deg, var(--terracotta-dark), var(--terracotta)); }
+        .category-card:nth-child(7) .category-bg { background: linear-gradient(135deg, var(--sage-light), var(--gold-light)); }
+        
+        .category-card:hover .category-bg {
+            transform: scale(1.1);
+        }
+        
+        .category-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.7));
+            z-index: 1;
+        }
+        
+        .category-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: var(--spacing-lg);
+            z-index: 2;
+            color: var(--white);
+        }
+        
+        .category-icon {
+            font-size: 3rem;
+            margin-bottom: var(--spacing-sm);
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+        }
+        
+        .category-title {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-xs);
+            font-style: italic;
+        }
+        
+        .category-count {
+            font-family: var(--font-heading);
+            font-size: 0.9rem;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Featured Products */
+        .featured {
+            background: var(--white);
+            padding: var(--spacing-xl) var(--spacing-lg);
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: var(--spacing-lg);
+            max-width: 1400px;
+            margin: var(--spacing-xl) auto 0;
+        }
+        
+        .product-card {
+            background: var(--cream);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: var(--transition-smooth);
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+        }
+        
+        .product-image-wrapper {
+            position: relative;
+            width: 100%;
+            height: 350px;
+            background: var(--stone);
+            overflow: hidden;
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-smooth);
+        }
+        
+        .product-card:hover .product-image {
+            transform: scale(1.08);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: var(--spacing-sm);
+            right: var(--spacing-sm);
+            background: var(--terracotta);
+            color: var(--white);
+            font-family: var(--font-heading);
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .product-badge.new {
+            background: var(--sage-green);
+        }
+        
+        .product-actions {
+            position: absolute;
+            bottom: var(--spacing-sm);
+            right: var(--spacing-sm);
+            display: flex;
+            gap: var(--spacing-xs);
+            opacity: 0;
+            transform: translateY(10px);
+            transition: var(--transition-smooth);
+        }
+        
+        .product-card:hover .product-actions {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .product-action-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--white);
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .product-action-btn:hover {
+            background: var(--sage-green);
+            color: var(--white);
+            transform: scale(1.1);
+        }
+        
+        .product-info {
+            padding: var(--spacing-md);
+        }
+        
+        .product-category {
+            font-family: var(--font-heading);
+            font-size: 0.8rem;
+            color: var(--sage-dark);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.3rem;
+        }
+        
+        .product-name {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: var(--spacing-sm);
+            font-style: italic;
+        }
+        
+        .product-price {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+        
+        .price-current {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--terracotta);
+        }
+        
+        .price-original {
+            font-size: 1.1rem;
+            color: var(--sage-dark);
+            text-decoration: line-through;
+            opacity: 0.6;
+        }
+        
+        /* Value Props */
+        .value-props {
+            background: var(--sage-green);
+            color: var(--white);
+            padding: var(--spacing-xl) var(--spacing-lg);
+        }
+        
+        .props-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-xl);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .prop-item {
+            text-align: center;
+        }
+        
+        .prop-icon {
+            font-size: 3rem;
+            margin-bottom: var(--spacing-md);
+            opacity: 0.9;
+        }
+        
+        .prop-title {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .prop-description {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--charcoal);
+            color: var(--stone);
+            padding: var(--spacing-xl) var(--spacing-lg) var(--spacing-lg);
+        }
+        
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-xl);
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .footer-section h3 {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            color: var(--white);
+            margin-bottom: var(--spacing-md);
+            font-style: italic;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .footer-links a {
+            color: var(--stone);
+            text-decoration: none;
+            transition: var(--transition-smooth);
+            font-size: 0.95rem;
+        }
+        
+        .footer-links a:hover {
+            color: var(--gold);
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-md);
+        }
+        
+        .social-btn {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--sage-dark);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: var(--transition-smooth);
+        }
+        
+        .social-btn:hover {
+            background: var(--gold);
+            transform: scale(1.1) rotate(5deg);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: var(--spacing-lg);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            color: var(--charcoal);
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero-title {
+                font-size: 4rem;
+            }
+            
+            .categories-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: var(--spacing-sm) var(--spacing-md);
+            }
+            
+            .logo {
+                font-size: 2rem;
+            }
+            
+            .hero {
+                margin-top: 100px;
+                height: 70vh;
+            }
+            
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .hero-description {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+            
+            .categories-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: var(--spacing-md);
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-lg);
+            }
+        }
+        
+        /* Animations */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        .hero-cta {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .hero-cta:hover {
+            animation: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header-top">
+            ✨ Envío gratis en compras superiores a $30.000 | Hasta 6 cuotas sin interés
+        </div>
+        <nav class="nav-container">
+            <a href="#" class="logo">Abigail</a>
+            
+            <ul class="nav-menu">
+                <li><a href="#joyas" class="nav-link">Joyas</a></li>
+                <li><a href="#belleza" class="nav-link">Belleza</a></li>
+                <li><a href="#carteras" class="nav-link">Carteras</a></li>
+                <li><a href="#cabello" class="nav-link">Cabello</a></li>
+                <li><a href="#especiales" class="nav-link">Especiales</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <button class="action-btn" aria-label="Buscar">
+                    <i data-lucide="search" width="22" height="22"></i>
+                </button>
+                <button class="action-btn" aria-label="Favoritos">
+                    <i data-lucide="heart" width="22" height="22"></i>
+                </button>
+                <button class="action-btn" aria-label="Carrito">
+                    <i data-lucide="shopping-bag" width="22" height="22"></i>
+                    <span class="cart-count">0</span>
+                </button>
+                <button class="action-btn mobile-menu-btn" aria-label="Menú">
+                    <i data-lucide="menu" width="24" height="24"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background"></div>
+        <div class="hero-pattern"></div>
+        <div class="hero-content">
+            <p class="hero-subtitle">Colección 2025</p>
+            <h1 class="hero-title">Naturaleza<br>& Elegancia</h1>
+            <p class="hero-description">
+                Descubrí la fusión perfecta entre sofisticación natural y diseño atemporal. 
+                Cada pieza cuenta una historia de belleza consciente.
+            </p>
+            <button class="hero-cta">
+                Explorar Colección
+                <i data-lucide="arrow-right" width="20" height="20"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories" id="categorias">
+        <div class="section-header">
+            <h2 class="section-title">Nuestras Categorías</h2>
+            <p class="section-subtitle">
+                Explora nuestra cuidada selección de accesorios premium, diseñados para complementar tu estilo único
+            </p>
+        </div>
+        
+        <div class="categories-grid">
+            <div class="category-card">
+                <div class="category-bg"></div>
+                <div class="category-overlay"></div>
+                <div class="category-content">
+                    <div class="category-icon">💎</div>
+                    <h3 class="category-title">Joyas & Bijouterie</h3>
+                    <p class="category-count">Más de 500 productos</p>
+                </div>
+            </div>
+            
+            <div class="category-card">
+                <div class="category-bg"></div>
+                <div class="category-overlay"></div>
+                <div class="category-content">
+                    <div class="category-icon">💄</div>
+                    <h3 class="category-title">Belleza & Cosmética</h3>
+                    <p class="category-count">Más de 300 productos</p>
+                </div>
+            </div>
+            
+            <div class="category-card">
+                <div class="category-bg"></div>
+                <div class="category-overlay"></div>
+                <div class="category-content">
+                    <div class="category-icon">👜</div>
+                    <h3 class="category-title">Carteras & Accesorios</h3>
+                    <p class="category-count">Más de 200 productos</p>
+                </div>
+            </div>
+            
+            <div class="category-card">
+                <div class="category-bg"></div>
+                <div class="category-overlay"></div>
+                <div class="category-content">
+                    <div class="category-icon">🎀</div>
+                    <h3 class="category-title">Accesorios Cabello</h3>
+                    <p class="category-count">Más de 400 productos</p>
+                </div>
+            </div>
+            
+            <div class="category-card">
+                <div class="category-bg"></div>
+                <div class="category-overlay"></div>
+                <div class="category-content">
+                    <div class="category-icon">🧣</div>
+                    <h3 class="category-title">Complementos de Moda</h3>
+                    <p class="category-count">Más de 250 productos</p>
+                </div>
+            </div>
+            
+            <div class="category-card">
+                <div class="category-bg"></div>
+                <div class="category-overlay"></div>
+                <div class="category-content">
+                    <div class="category-icon">🎪</div>
+                    <h3 class="category-title">Colecciones Especiales</h3>
+                    <p class="category-count">Más de 150 productos</p>
+                </div>
+            </div>
+            
+            <div class="category-card">
+                <div class="category-bg"></div>
+                <div class="category-overlay"></div>
+                <div class="category-content">
+                    <div class="category-icon">🎁</div>
+                    <h3 class="category-title">Temporada</h3>
+                    <p class="category-count">Novedades mensuales</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured" id="destacados">
+        <div class="section-header">
+            <h2 class="section-title">Productos Destacados</h2>
+            <p class="section-subtitle">
+                Las piezas más elegidas por nuestra comunidad
+            </p>
+        </div>
+        
+        <div class="products-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <div class="product-image" style="background: linear-gradient(135deg, var(--sage-light), var(--stone));"></div>
+                    <span class="product-badge new">Nuevo</span>
+                    <div class="product-actions">
+                        <button class="product-action-btn" aria-label="Ver rápido">
+                            <i data-lucide="eye" width="18" height="18"></i>
+                        </button>
+                        <button class="product-action-btn" aria-label="Agregar a favoritos">
+                            <i data-lucide="heart" width="18" height="18"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <p class="product-category">Joyas • Acero</p>
+                    <h3 class="product-name">Aro Trepador Fantasía</h3>
+                    <div class="product-price">
+                        <span class="price-current">$1.135</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 2 -->
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <div class="product-image" style="background: linear-gradient(135deg, var(--terracotta), var(--gold-light));"></div>
+                    <span class="product-badge">-20%</span>
+                    <div class="product-actions">
+                        <button class="product-action-btn" aria-label="Ver rápido">
+                            <i data-lucide="eye" width="18" height="18"></i>
+                        </button>
+                        <button class="product-action-btn" aria-label="Agregar a favoritos">
+                            <i data-lucide="heart" width="18" height="18"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <p class="product-category">Carteras • Marroquinería</p>
+                    <h3 class="product-name">Mochila Deportiva 47x30</h3>
+                    <div class="product-price">
+                        <span class="price-current">$22.000</span>
+                        <span class="price-original">$26.000</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 3 -->
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <div class="product-image" style="background: linear-gradient(135deg, var(--gold), var(--gold-light));"></div>
+                    <span class="product-badge new">Nuevo</span>
+                    <div class="product-actions">
+                        <button class="product-action-btn" aria-label="Ver rápido">
+                            <i data-lucide="eye" width="18" height="18"></i>
+                        </button>
+                        <button class="product-action-btn" aria-label="Agregar a favoritos">
+                            <i data-lucide="heart" width="18" height="18"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <p class="product-category">Joyas • Oro 14K</p>
+                    <h3 class="product-name">Aro Rombo Strass</h3>
+                    <div class="product-price">
+                        <span class="price-current">$1.800</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 4 -->
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <div class="product-image" style="background: linear-gradient(135deg, var(--sage-green), var(--sage-light));"></div>
+                    <div class="product-actions">
+                        <button class="product-action-btn" aria-label="Ver rápido">
+                            <i data-lucide="eye" width="18" height="18"></i>
+                        </button>
+                        <button class="product-action-btn" aria-label="Agregar a favoritos">
+                            <i data-lucide="heart" width="18" height="18"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <p class="product-category">Cabello • Accesorios</p>
+                    <h3 class="product-name">Vincha Elegante</h3>
+                    <div class="product-price">
+                        <span class="price-current">$850</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Props -->
+    <section class="value-props">
+        <div class="props-grid">
+            <div class="prop-item">
+                <div class="prop-icon">
+                    <i data-lucide="truck" width="48" height="48"></i>
+                </div>
+                <h3 class="prop-title">Envío a Todo el País</h3>
+                <p class="prop-description">Gratis en compras superiores a $30.000</p>
+            </div>
+            
+            <div class="prop-item">
+                <div class="prop-icon">
+                    <i data-lucide="shield-check" width="48" height="48"></i>
+                </div>
+                <h3 class="prop-title">Compra Segura</h3>
+                <p class="prop-description">Protección en todas tus transacciones</p>
+            </div>
+            
+            <div class="prop-item">
+                <div class="prop-icon">
+                    <i data-lucide="credit-card" width="48" height="48"></i>
+                </div>
+                <h3 class="prop-title">Cuotas Sin Interés</h3>
+                <p class="prop-description">Hasta 6 cuotas en compras seleccionadas</p>
+            </div>
+            
+            <div class="prop-item">
+                <div class="prop-icon">
+                    <i data-lucide="headphones" width="48" height="48"></i>
+                </div>
+                <h3 class="prop-title">Atención Personalizada</h3>
+                <p class="prop-description">Lunes a sábados de 9 a 18hs</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Abigail</h3>
+                <p style="margin-bottom: 1rem;">
+                    Tu destino de accesorios premium con diseño consciente y calidad excepcional.
+                </p>
+                <div class="social-links">
+                    <a href="https://wa.me/5491126844657" class="social-btn" aria-label="WhatsApp">
+                        <i data-lucide="message-circle" width="20" height="20"></i>
+                    </a>
+                    <a href="https://www.facebook.com/bijouterieabigail" class="social-btn" aria-label="Facebook">
+                        <i data-lucide="facebook" width="20" height="20"></i>
+                    </a>
+                    <a href="https://www.instagram.com/bijouterieabigail/" class="social-btn" aria-label="Instagram">
+                        <i data-lucide="instagram" width="20" height="20"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@bijouterieabigail" class="social-btn" aria-label="TikTok">
+                        <i data-lucide="video" width="20" height="20"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Comprar</h3>
+                <ul class="footer-links">
+                    <li><a href="#joyas">Joyas & Bijouterie</a></li>
+                    <li><a href="#belleza">Belleza & Cosmética</a></li>
+                    <li><a href="#carteras">Carteras & Accesorios</a></li>
+                    <li><a href="#cabello">Accesorios Cabello</a></li>
+                    <li><a href="#especiales">Colecciones Especiales</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Ayuda</h3>
+                <ul class="footer-links">
+                    <li><a href="#como-comprar">Cómo Comprar</a></li>
+                    <li><a href="#envios">Envíos</a></li>
+                    <li><a href="#cambios">Cambios y Devoluciones</a></li>
+                    <li><a href="#faq">Preguntas Frecuentes</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Información</h3>
+                <ul class="footer-links">
+                    <li><a href="#nosotros">Sobre Nosotros</a></li>
+                    <li><a href="#terminos">Términos y Condiciones</a></li>
+                    <li><a href="#privacidad">Política de Privacidad</a></li>
+                    <li><a href="#atencion">Atención al Cliente</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2025 Abigail Moda. Todos los derechos reservados.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.85rem; opacity: 0.7;">
+                Desarrollado con ❤️ para ofrecer la mejor experiencia de compra
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+        
+        // Header scroll effect
+        const header = document.getElementById('header');
+        let lastScroll = 0;
+        
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+            
+            lastScroll = currentScroll;
+        });
+        
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Cart counter (demo)
+        let cartCount = 0;
+        const cartCountElement = document.querySelector('.cart-count');
+        
+        document.querySelectorAll('.product-card').forEach(card => {
+            card.addEventListener('click', function(e) {
+                if (!e.target.closest('.product-action-btn')) {
+                    cartCount++;
+                    cartCountElement.textContent = cartCount;
+                    
+                    // Animation
+                    cartCountElement.style.animation = 'none';
+                    setTimeout(() => {
+                        cartCountElement.style.animation = 'float 0.5s ease';
+                    }, 10);
+                }
+            });
+        });
+        
+        // Parallax effect on hero
+        const hero = document.querySelector('.hero');
+        const heroPattern = document.querySelector('.hero-pattern');
+        
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = scrolled * 0.5;
+            
+            if (heroPattern && scrolled < hero.offsetHeight) {
+                heroPattern.style.transform = `translateY(${parallax}px)`;
+            }
+        });
+        
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe product cards
+        document.querySelectorAll('.product-card, .category-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
